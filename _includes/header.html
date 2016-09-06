@@ -10,10 +10,10 @@
     <div class="panel-main__content">
         <a href="{{ site.baseurl }}" title="link to home of {{ site.title }}">
           <img src="{{ "images/profile.jpg" | prepend: site.baseurl }}" class="user-image" alt="My Profile Photo">
-          <h1 class="panel-cover__title panel-title">{{ site.title }}</h1>
+          <h1 class="panel-cover__title panel-title" id="header">{{ site.title }}</h1>
         </a>
         <hr class="panel-cover__divider">
-        <p class="panel-cover__description">{{ site.description }}</p>
+        <p class="panel-cover__description" id="subheader">{{ site.description }}</p>
         <hr class="panel-cover__divider panel-cover__divider--secondary">
 
         <div class="navigation-wrapper">
@@ -96,4 +96,26 @@
 
     <div class="panel-cover--overlay"></div>
   </div>
+    <script>
+    "use strict";
+    
+    function writenext() {
+      $('#subheader').typeIt({
+        speed: 100,
+        startDelay: 1250,
+        autoStart: false,
+        strings: 'HVAC Engineer, Freelance web developer and a Gamer!'
+      });
+    }
+    
+    window.onload = $('#header').typeIt({
+      speed: 200,
+      startDelay: 750,
+      autoStart: true,
+      strings: 'Alankrit',
+      callback: function() {
+        writenext();
+      }
+    });
+  </script>
 </header>
